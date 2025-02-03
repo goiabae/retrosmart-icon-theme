@@ -22,5 +22,9 @@
 
         dontDropIconThemeCache = true;
       };
+
+    overlays.default = final: prev: {
+      inherit (self.packages.x86_64-linux) retrosmart-icon-theme;
+    };
   };
 }
