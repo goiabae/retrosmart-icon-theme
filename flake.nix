@@ -26,5 +26,11 @@
     overlays.default = final: prev: {
       inherit (self.packages.x86_64-linux) retrosmart-icon-theme;
     };
+
+    devShells.x86_64-linux.default =
+      let pkgs = import nixpkgs { system = "x86_64-linux"; }; in
+      pkgs.mkShell {
+        buildInputs = with pkgs; [ gnumake ];
+      };
   };
 }
